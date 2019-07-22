@@ -19,7 +19,6 @@ ENV PYTHON_VERSION 3.7.3
 RUN set -ex \
     && wget -q https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz \
     && tar xzf Python-${PYTHON_VERSION}.tgz \
-    \
     && cd Python-${PYTHON_VERSION} \
     && ./configure \
         --enable-optimizations \
@@ -29,7 +28,6 @@ RUN set -ex \
     && make -j "$(nproc)" \
     && make altinstall \
     && ldconfig \
-    \
     && cd .. && rm -rf Python-${PYTHON_VERSION}*
 
 RUN cd /usr/local/bin \
@@ -43,12 +41,10 @@ RUN cd /usr/local/bin \
 ENV PYTHON_PIP_VERSION 19.1.1
 
 RUN wget -q -O get-pip.py "https://bootstrap.pypa.io/get-pip.py" \
-    \
     && python get-pip.py \
         --disable-pip-version-check \
         --no-cache-dir \
         "pip==$PYTHON_PIP_VERSION" \
-    \
     && rm -f get-pip.py \
     && pip --version
 
