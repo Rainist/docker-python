@@ -2,7 +2,13 @@ FROM centos:7.6.1810
 
 LABEL maintainer="Rainist Engineering <engineering@rainist.com>"
 
-RUN yum install -y gcc make openssl-devel bzip2-devel libffi-devel wget \
+RUN yum install -y \
+        gcc \
+        make \
+        openssl-devel \
+        bzip2-devel \
+        libffi-devel \
+        wget \
     && yum clean all \
     && rm -rf /var/cache/yum
 
