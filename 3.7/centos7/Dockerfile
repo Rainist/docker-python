@@ -8,13 +8,14 @@ RUN yum install -y \
         openssl-devel \
         bzip2-devel \
         libffi-devel \
+        sqlite-devel \
         wget \
     && yum clean all \
     && rm -rf /var/cache/yum
 
 ENV PATH /usr/local/bin:$PATH
 
-ENV PYTHON_VERSION 3.7.3
+ENV PYTHON_VERSION 3.7.5
 
 RUN set -ex \
     && wget -q https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz \
