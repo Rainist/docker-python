@@ -9,6 +9,8 @@ RUN yum install -y \
         bzip2-devel \
         libffi-devel \
         sqlite-devel \
+        python3-dev \
+        ncurses-devel \
         wget \
     && yum clean all \
     && rm -rf /var/cache/yum
